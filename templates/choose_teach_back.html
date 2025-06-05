@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Subject to Teach Back</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Select Subject to Teach Back</h2>
+        <ul>
+            {% for subj in subjects %}
+            <li><a href="{{ url_for('teach_back', subject=subj) }}">{{ subj }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

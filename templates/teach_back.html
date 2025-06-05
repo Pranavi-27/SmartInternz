@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teach Back - {{ subject }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Teach Back: {{ subject }}</h2>
+        <p><strong>Study Material:</strong> {{ material }}</p>
+
+        <form method="POST" action="{{ url_for('submit_teach_back', subject=subject) }}">
+            <label for="explanation">Explain in your own words:</label><br>
+            <textarea name="explanation" rows="6" cols="60" required></textarea><br><br>
+            <input type="submit" value="Submit Explanation">
+        </form>
+        <br>
+        <a href="{{ url_for('choose_teach_back') }}">Choose another subject</a> |
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

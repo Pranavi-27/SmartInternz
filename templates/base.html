@@ -1,0 +1,25 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}EduTutor{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% if not hide_nav %}
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a> |
+        <a href="{{ url_for('quiz') }}">Quiz</a> |
+        <a href="{{ url_for('choose_teach_back') }}">Teach Back</a> |
+        <a href="{{ url_for('chatbot') }}">Ask Tutor</a> |
+        <a href="{{ url_for('view_progress') }}">Progress</a> |
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    {% endif %}
+    
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

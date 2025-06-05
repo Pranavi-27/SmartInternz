@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teach Back Feedback - {{ subject }}</title>
+</head>
+<body>
+    <h2>Feedback on Your Explanation: {{ subject }}</h2>
+    
+    <p><strong>Your Explanation:</strong></p>
+    <p>{{ explanation }}</p>
+
+    <p><strong>AI Feedback:</strong></p>
+    <p>{{ feedback }}</p>
+
+    <a href="{{ url_for('teach_back', subject=subject) }}">Try Again</a> |
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

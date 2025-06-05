@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Progress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Your Progress</h2>
+
+        {% if records %}
+            <ul>
+                {% for subject, score, feedback in records %}
+                    <li>
+                        <b>Subject:</b> {{ subject }}<br>
+                        <b>Quiz Score:</b> {{ score }}/5 –
+                        {% if score == 5 %}
+                            <span style="color: green;"><b>Excellent</b></span>
+                        {% elif score >= 3 %}
+                            <span style="color: orange;"><b>Average</b></span>
+                        {% else %}
+                            <span style="color: red;"><b>Needs Improvement</b></span>
+                        {% endif %}
+                        <br><b>AI Feedback:</b> {{ feedback }}
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No progress data yet. Please take a quiz or try Teach Back Mode!</p>
+        {% endif %}
+
+        <br>
+        <a href="{{ url_for('dashboard') }}"><button>Back to Dashboard</button></a>
+    </div>
+</body>
+</html>

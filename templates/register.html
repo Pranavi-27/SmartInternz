@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 1em;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.6em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 0.7em;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <input type="email" name="email" placeholder="Email" required>
+
+        <input type="password" name="password" placeholder="Password" required>
+
+        <label>Select Subject</label>
+        <select name="subject" required>
+            <option value="Science">Science</option>
+            <option value="Math">Math</option>
+            <option value="English">English</option>
+        </select>
+
+        <label>Learning Style</label>
+        <select name="style" required>
+            <option value="Kinesthetic">Kinesthetic</option>
+        </select>
+
+        <label>Learning Level</label>
+        <select name="level" required>
+            <option value="Beginner">Beginner</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

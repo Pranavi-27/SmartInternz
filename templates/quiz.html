@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Take a Quiz</h2>
+
+    {% if not subject %}
+    <!-- Subject selection form -->
+    <form method="POST" action="/quiz">
+        <label for="subject">Select a subject:</label>
+        <select name="subject" id="subject" required>
+            <option value="" disabled selected>Choose...</option>
+            <option value="Science">Science</option>
+            <option value="Math">Math</option>
+            <option value="English">English</option>
+        </select>
+        <button type="submit">Start Quiz</button>
+    </form>
+
+    {% else %}
+    <!-- Quiz questions based on selected subject -->
+    <form method="POST" action="/submit_quiz">
+        <input type="hidden" name="subject" value="{{ subject }}">
+
+        {% for q in questions %}
+            {% set q_index = loop.index %}
+            <div class="question">
+                <p><strong>Q{{ q_index }}. {{ q.question }}</strong></p>
+                {% for option in q.options %}
+                    <div>
+                        <input 
+                            type="radio" 
+                            id="q{{ q_index }}_{{ loop.index }}" 
+                            name="q{{ q_index }}" 
+                            value="{{ option }}" 
+                            required
+                        >
+                        <label for="q{{ q_index }}_{{ loop.index }}">{{ option }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+            <hr>
+        {% endfor %}
+
+        <button type="submit">Submit Quiz</button>
+    </form>
+    {% endif %}
+</body>
+</html>

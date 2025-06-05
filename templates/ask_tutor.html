@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask Tutor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Ask a Question</h2>
+        <form method="POST" action="/chatbot">
+            <input type="text" name="question" placeholder="Your question here" required><br>
+            <button type="submit">Ask</button>
+        </form>
+    </div>
+</body>
+</html>
